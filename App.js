@@ -1,32 +1,40 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-/*const heading =React.createElement('h1',{
-    id:"heading"
-},'Hello from react')*/
 
+//below using JSXElement
 /*
-HTML Structure
-<div id = "parent">
-    <div id =child1>
-        <h1>"I am H1"</h1>
-        <h2>"I am h2 child1"</h2>
-    </div>
-    <div id =child2>
-        <h1>"I am h1 child1" </h1>
-        <h2> "I am h2 child2" </h2>
-    </div>
-</div>
+const jsxHeading = <h1 id="Heading">"Using JSX"</h1>
+const root = ReactDOM.createRoot(document.getElementById("root"))
 */
-const parent = React.createElement("div",{id:"parent"},[
-    React.createElement("div",{id:"child1"},[
-        React.createElement("h1",{},"I am h1 of child1"),
-        React.createElement("h2",{},"I am h2 of child1")
-    ]),
-    React.createElement("div",{id:"child1"},[
-        React.createElement("h1",{},"I am h1 of child1"),
-        React.createElement("h2",{},"I am h2 of child1")
-    ])
-])
+const Title =() =>(
+    <h1 className="head">Component composition</h1>
+)
+//Javascript title
+const title = (
+    <h1 className="head">Component composition</h1>
+)
+
+
+
+//React functional component - below is the one way to introduce react element inside component
+/*const HeadingComponent = ()=>(
+    <div id="container">
+    <Title/>
+    <h1 id="Heading">RFC</h1>
+    </div>
+)*/
+
+//Second method to define the const variable Title inside react component as javascript code
+const HeadingComponent = ()=>(
+    <div id="container">
+    {title}
+    {Title()}
+    {<Title></Title>}
+    {<Title/>}
+    <h1 id="Heading">RFC</h1>
+    </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(parent)
+root.render(<HeadingComponent />)
