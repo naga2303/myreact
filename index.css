@@ -46,3 +46,19 @@ width: 100px;
 .res-logo{
     width: 100%;
 }
+
+.filter-btn{
+    margin: auto;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    margin: 20px;
+    width: 300px;
+    height: 200px;
+    background-color: #f0f0f0;
+}

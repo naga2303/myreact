@@ -1,0 +1,24 @@
+Episode 5 - Lets get hooked
+
+Two types of export - 1) Default export => export default compName , to Import => import component from 'Path'
+2) Named export => export const component; To Import => import {component} from "Path".
+
+Q) Is it possible to do both kind of export in a single file. 
+Q) Hooks - Normal JS utility function written by fb devs. Two very important hooks 1) useState() 2) useEffect() --> contd 1:29mins apply bnp paribas
+q) Whenever a state variable changes, the react will re-render the component. (Time: 1:41 -> to see the modified code
+Q) React fibre algorithm(check github link), React conciallation
+
+Episode 6 - Exploring the world
+q) Monolith architecture - Having all the service like api,ui, db, auth, message service in a single project is called monolith architecture.
+q) Microservice architecture - Different services for different jobs, All the service like above forms a app. It forms a single responsibility and each service
+doesn't interfere.  Ex: namaste react is a UI service. In this case, seaprate lang can be used in each service, ui in js api in java. They run on different
+ports. Ports can be mapped.
+q) Two Approaches how UI fetches the data from backend
+First approach : Load the page, send the api and wait for the api's to complete and then load the page. Till api is finished the UI doesn't show anything.
+Second Approach: Load the page, render the skelton --> fire the apis --> Again re-render it. In react this approach is followed vivdly. React 
+renders fastly so it does not cause any issues. It gives a better UX experience. 
+
+q) UseEffect - it has 2 arguments, first is a callback function and second is dependency array. Import this as named variable. The callback  will be called 
+as soon as the render cycle is finished. 
+q) Optional chaining -learn more.
+q) Shimmer UI - loading the fake page until the actual page is loaded. contd : 1:00:18
