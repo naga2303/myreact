@@ -25,7 +25,7 @@ const Body = ()=>{
 
     //conditional rendering
     if (listofRestaurants.length ===0){
-        return <Shimmer/>
+        return <Shimmer />
     }
 
     return listofRestaurants.length ===0 ?

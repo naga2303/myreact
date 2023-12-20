@@ -26,3 +26,19 @@ q) Why do we use useState method? - The reason is if we want to have a local var
 the we have to use the useState method. For dynamic purpose the concept is used. Syntax => const[a,b] =useState(""), here a is the variable and b is the
 function which is used to change the a's value. We cannot directly modify the a value, we have to use a function to modify.
 q) why react is faster? - react fibre finds the difference between the two virtual doms and updates only which is necessary.
+
+
+Episode - 7 - Finding the Path
+---------------------------------
+
+q) When is useEffect is called?
+If no dependency array called => useEffect is called on every render
+If dependency array is empty = [] => useEffect is called initial render(just once)
+If dependency array is [btnReact] => useEffect is called on every update of btnReact.
+
+q) Best practice of useState.
+UseState should be called on top of the function.
+do not use useState in the if else statement, for loops or conditions
+
+q) npm package for routing
+react router dom - npm i react-router-dom
