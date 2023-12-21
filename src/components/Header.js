@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants"
+import { Link } from "react-router-dom";
 const Header = ()=>{
     /*Here we have used const and it looks like we are changing the value, when we use the useState method, the whole header component is 
     rendered so the const variable is newly assigned with logout text. It does not affect the js rules.*/
@@ -11,9 +12,15 @@ const Header = ()=>{
             </div>
             <div className = "nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About Us</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact Us</Link>
+                    </li>
                     <li>Cart</li>
                     <button className="login" onClick={()=>{
                         btnName ==="login"?

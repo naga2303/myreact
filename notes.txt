@@ -42,3 +42,9 @@ do not use useState in the if else statement, for loops or conditions
 
 q) npm package for routing
 react router dom - npm i react-router-dom
+q) children routes - outlet
+based on the path, the outlet will call the corresponding page and it is not seen in html.
+q) Link is a super component provided by the react router dom. It will not reload the page only the content is changed.
+Two kind of routing :
+Client side routing - It does not make network calls, all the needed items are rendered priorly.
+Server side routing - It makes the network calls. 
