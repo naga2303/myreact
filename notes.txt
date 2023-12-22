@@ -49,3 +49,20 @@ Two kind of routing :
 Client side routing - It does not make network calls, all the needed items are rendered priorly.
 Server side routing - It makes the network calls. 
 q) :resId --> This means that this part of url is dynamic.
+
+
+Part 8 - Class based components
+q) It is a older way of writing code. New way is functional components. 
+q) What is class based components - It is a normal javascript class.
+q) What is react.component - It is class given by the react so that the class can inherit properties from this. This react.component comes from react so we need to import it.
+q) Loading a class based component means creating a instance of the class.
+q) UseState in the class component should be used where instance of the class is created. So it must be used in the constructor function.
+q) "this.state " to create state variable in the class based component, here state is the reserved word.
+q) Never update state variables directly.
+q) class component has two methods : render and componentDidMount(). First class constructor is called, second: render method and finally: componentDidMount method is called.
+q) Api call will be inside the componentDidMount() method. It is because, first the UI should be rendered then the api call should happen, else the UI will wait 
+till the api is executed. 1:07:00 to 1:10:00 & 1:20 to 1:30 (to know why react is fast and lifecycle of class components)
+q) React does the render phase first and commit phase later.
+q) If there are two or more child classes defined the parent class component then, the process is parent constructor -> parent render --> childA constructor
+--> childA render --> childB constructor --> childB render --> childA'scomponentDidMount --> childB'sComponentDidMount --> Parent's componentDidMount.
+q) ComponentDidUpdate calls finally. From 2:00 to 2:40 (live class, check it out later).

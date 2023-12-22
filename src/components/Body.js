@@ -20,16 +20,16 @@ const Body = ()=>{
         const json = await data.json()
         console.log(json)
         //optional chaining
-        setListofRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListofRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     //conditional rendering
-    if (listofRestaurants.length ===0){
-        return <Shimmer />
-    }
+   // if (listofRestaurants.length ===0){
+     //   return <Shimmer />
+    //}
 
-    return listofRestaurants.length ===0 ?
+    return listofRestaurants.length === 0 ?
     (
          <Shimmer/>
     )
