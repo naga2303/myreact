@@ -66,3 +66,20 @@ q) React does the render phase first and commit phase later.
 q) If there are two or more child classes defined the parent class component then, the process is parent constructor -> parent render --> childA constructor
 --> childA render --> childB constructor --> childB render --> childA'scomponentDidMount --> childB'sComponentDidMount --> Parent's componentDidMount.
 q) ComponentDidUpdate calls finally. From 2:00 to 2:40 (live class, check it out later).
+
+
+Part 9 - Optimizing the App
+q) Creating custom hooks - time :44:50
+q) chunking, code-splitting - breaking down the application instead of loading the application into single js file. 
+q) lazy loading = we will not load directly, we will load only after it is called. It is also called as on-demand loading.
+q) Suspense - because of lazy loading, on clicking the componenet, the react will take few seconds to load the page, in between the time, the react will try to 
+render the components but it fails, so it thows an error. To avoid this error we can use suspense method to delay the react rendering. We have to wrap the 
+componenet with suspense attribue. <suspense><grocery></suspense>.
+
+
+Part 10- jo dikta hai ho biktha nahi
+q) Sass - css - scss - ant UI - chakra UI - material UI- most popular css frameworks.
+q) Tailwind css. Install tailwind css using parcel
+q) After installing the tailwind css, it will create a config file for tailwind css. we have to creae postccs files.
+q) Install tailwind intellisense in the vs code extension.
+q) Tailwind css is lightweight. If we have m4(margin) used in many places, while bundling only one m4 class is used. Repeatition is not allowed. 

@@ -1,5 +1,5 @@
 import RestaurnantCard from "./RestaurantCard";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -20,14 +20,17 @@ const Body = ()=>{
         const json = await data.json()
         console.log(json)
         //optional chaining
-        setListofRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListofRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     //conditional rendering
    // if (listofRestaurants.length ===0){
      //   return <Shimmer />
     //}
+    const onlineInfo = useOnlineStatus();
+
+    if(onlineInfo === false) return <h1>Looks like your internet is off</h1>
 
     return listofRestaurants.length === 0 ?
     (
@@ -35,14 +38,14 @@ const Body = ()=>{
     )
     :(
         <div className="Body">
-            <div className="filter">
+            <div className="bg-transparent flex ">
                 <div className="search">
-                    <input type="text" className="search-box" value={searchText}
+                    <input type="text" className="search-box border-solid" value={searchText}
                     onChange={(e)=>{
                         setsearchText(e.target.value)
                     }}
                     />
-                    <button onClick={()=>{
+                    <button className="px-4" onClick={()=>{
                         const fileteredRestaurant=listofRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
 
                         setFilteredRestaurant(fileteredRestaurant)
