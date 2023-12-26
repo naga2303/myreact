@@ -1,4 +1,4 @@
-import RestaurnantCard from "./RestaurantCard";
+import RestaurnantCard, {areaName} from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -9,6 +9,8 @@ const Body = ()=>{
     const [filteredRestaurant,setFilteredRestaurant] = useState([])
 
     const[searchText,setsearchText] = useState("")
+
+    const AreaAvadi = areaName(RestaurnantCard);
 
     useEffect(()=>{
         fetchData();
@@ -37,22 +39,22 @@ const Body = ()=>{
          <Shimmer/>
     )
     :(
-        <div className="Body">
+        <div className="Body py-1">
             <div className="bg-transparent flex ">
-                <div className="search">
-                    <input type="text" className="search-box border-solid" value={searchText}
+                <div className="search border-solid rounded-lg">
+                    <input type="text" className="search-box border-solid bg-blue-50" value={searchText}
                     onChange={(e)=>{
                         setsearchText(e.target.value)
                     }}
                     />
-                    <button className="px-4" onClick={()=>{
+                    <button className="px-2 mx-2 bg-gray-200 rounded-lg" onClick={()=>{
                         const fileteredRestaurant=listofRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
 
                         setFilteredRestaurant(fileteredRestaurant)
                         console.log(searchText)
                     }}>Search</button>
                 </div>
-            <button className="filter-btn"
+            <button className="filter-btn rounded-lg px-2 mx-2 bg-green-300"
             onClick={()=>{
                 const filteredList = listofRestaurants.filter((res)=> res.info.avgRating > 4.1);
                 setListofRestaurant(filteredList);
@@ -60,15 +62,24 @@ const Body = ()=>{
                 Top Rated Restaurant
                 </button>
                 </div>
-            <div className="res-container">
+            <div className="res-container flex w-50 space-x-10 my-2">
             {
                 filteredRestaurant.map((restaurnant) =>(
+                    console.log("Restaurnnn: "+typeof(restaurnant.info.areaName).toString()),
                     <Link 
                     key={restaurnant.info.id} 
-                    to={"/restaurants/"+restaurnant.info.id}> <RestaurnantCard  resData = {restaurnant} /></Link>
+                    to={"/restaurants/"+restaurnant.info.id}>
+                        {
+                            (restaurnant.info.areaName).toString() ==="Avadi" ? (<AreaAvadi resData = {restaurnant} />) :  (<RestaurnantCard  resData = {restaurnant} />)
+                         }
+                        
+                       
+                    </Link>
             ))}   
             </div>
         </div>
+       
     )
+    
 }
 export default Body;

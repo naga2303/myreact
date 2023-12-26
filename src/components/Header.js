@@ -8,7 +8,7 @@ const Header = ()=>{
     const [btnName,setbtnName] = useState("login")
     const onlineInfo = useOnlineStatus();
     return (
-        <div className="header flex border-spacing-0 bg-blue-100 justify-between">
+        <div className="header flex border-spacing-0 bg-blue-100 shadow-lg justify-between">
             <div className="logo-container">
                 <img className="w-40" src={LOGO_URL}/>
             </div>
@@ -17,17 +17,17 @@ const Header = ()=>{
                     <li className="px-2">
                     online Status: {onlineInfo?":)":":("}
                     </li>
-                    <li className="px-2">
+                    <li className="px-2 hover:bg-blue-400">
                         <Link to="/">Home</Link>
                     </li>
-                    <li className="px-2">
+                    <li className="px-2 hover:bg-blue-400">
                         <Link to="/about">About Us</Link>
                     </li>
-                    <li className="px-2">
+                    <li className="px-2 hover:bg-blue-400">
                         <Link to="/contact">Contact Us</Link>
                     </li>
-                    <li className="px-2">Cart</li>
-                    <button className="login px-2" onClick={()=>{
+                    <li className="px-2 hover:bg-blue-400">Cart</li>
+                    <button className="login px-2 hover:bg-blue-400" onClick={()=>{
                         btnName ==="login"?
                         setbtnName("logout"):setbtnName("login")
                     }}>{btnName}</button>

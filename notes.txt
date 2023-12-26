@@ -83,3 +83,12 @@ q) Tailwind css. Install tailwind css using parcel
 q) After installing the tailwind css, it will create a config file for tailwind css. we have to creae postccs files.
 q) Install tailwind intellisense in the vs code extension.
 q) Tailwind css is lightweight. If we have m4(margin) used in many places, while bundling only one m4 class is used. Repeatition is not allowed. 
+
+Part - 11 Data is the new Optional
+q) High order component - It is a function that takes the component and returns a component.
+q) React applications has 2 layers: 1) UI layer - jsx part 2) Data Layers - state, local variables, hooks - 25 mins
+q) according - expanding and collapsing the text box - like swiggy.
+q) React dev tools - extension.
+q) Read liftingTheStateUp in react documentation.
+q) useContext = Hook. To get the variable's value from a file so that it can be used in multiple places. Ex login userName. Even if we go to resCategory page, the username should be displayed.
+q) To overwrite the userContext, we can use userContext.provider method.
