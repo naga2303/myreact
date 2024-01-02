@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { LOGO_URL } from "../utils/constants"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
+
+
 const Header = ()=>{
     /*Here we have used const and it looks like we are changing the value, when we use the useState method, the whole header component is 
     rendered so the const variable is newly assigned with logout text. It does not affect the js rules.*/
     const [btnName,setbtnName] = useState("login")
     const onlineInfo = useOnlineStatus();
+    const { loggedInUser } = useContext(userContext);
+
     return (
         <div className="header flex border-spacing-0 bg-blue-100 shadow-lg justify-between">
             <div className="logo-container">
@@ -31,6 +36,7 @@ const Header = ()=>{
                         btnName ==="login"?
                         setbtnName("logout"):setbtnName("login")
                     }}>{btnName}</button>
+                     <li className="px-4 ">{loggedInUser}</li>
                 </ul>
 
             </div>

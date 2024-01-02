@@ -1,14 +1,15 @@
 import RestaurnantCard, {areaName} from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import userContext from "../utils/userContext";
 
 const Body = ()=>{
     const [listofRestaurants,setListofRestaurant] = useState([])
     const [filteredRestaurant,setFilteredRestaurant] = useState([])
 
-    const[searchText,setsearchText] = useState("")
+    const[searchText,setsearchText] = useState("");
 
     const AreaAvadi = areaName(RestaurnantCard);
 
@@ -22,8 +23,8 @@ const Body = ()=>{
         const json = await data.json()
         console.log(json)
         //optional chaining
-        setListofRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setListofRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     //conditional rendering
@@ -33,6 +34,8 @@ const Body = ()=>{
     const onlineInfo = useOnlineStatus();
 
     if(onlineInfo === false) return <h1>Looks like your internet is off</h1>
+
+    const { loggedInUser, setuserName } = useContext(userContext);
 
     return listofRestaurants.length === 0 ?
     (
@@ -52,9 +55,12 @@ const Body = ()=>{
 
                         setFilteredRestaurant(fileteredRestaurant)
                         console.log(searchText)
-                    }}>Search</button>
+                    }}>Search
+                    </button>
                 </div>
-            <button className="filter-btn rounded-lg px-2 mx-2 bg-green-300"
+                <div className="search m-4 p-4 flex items-center">
+
+                <button className="filter-btn rounded-lg px-2 mx-2 bg-green-300"
             onClick={()=>{
                 const filteredList = listofRestaurants.filter((res)=> res.info.avgRating > 4.1);
                 setListofRestaurant(filteredList);
@@ -62,6 +68,16 @@ const Body = ()=>{
                 Top Rated Restaurant
                 </button>
                 </div>
+                <div className="search m-4 p-4 flex items-center">
+                    <label>userName: </label>
+                    <input  
+                            className="border border-black p-2 mx-2" 
+                            value={loggedInUser}
+                            onChange={(e) => setuserName(e.target.value)}
+                           // onChange={(e) => setUserName(e.target.value)}
+                            />
+                </div>
+            </div>
             <div className="res-container flex w-50 space-x-10 my-2">
             {
                 filteredRestaurant.map((restaurnant) =>(
