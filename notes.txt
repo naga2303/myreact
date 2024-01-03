@@ -117,4 +117,4 @@ q) Unit testing - testing the react component in isolation.
 q) Integration testing - testing the integration of the components, ex: search + identifying the components.
 q) E2E testing - from user landing to user exiting.
 q) Library - react testing library - dom testing library. Built on top of dom testing library.
-q) react testing library uses jest framework. cmd - npm i -D @testing-library/react
+q) react testing library uses jest framework. cmd - npm i -D @testing-library/react, install jest and jest with babel.
