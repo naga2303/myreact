@@ -92,3 +92,22 @@ q) React dev tools - extension.
 q) Read liftingTheStateUp in react documentation.
 q) useContext = Hook. To get the variable's value from a file so that it can be used in multiple places. Ex login userName. Even if we go to resCategory page, the username should be displayed.
 q) To overwrite the userContext, we can use userContext.provider method.
+
+Part 12- Lets build our store
+q) zustand is another library which also kind of redux.
+q) Redux - A predictable state container for JS apps.
+q) Two libraries - redux react and redux toolkit
+q) Redux toolkit solves the issues occurred while using the redux.
+q) Redux store - It is a big js object and it is kept in the global central space.
+q) When we click on the add button in the order page, it dispatches an action, then it calls the function and the function modifies the cart(slice in the redux store, there can be multiple slices like cart, user, login).
+q) The function is actually known as reducer. The reducer updates the slice of the redux store(cart - page).
+q) selector - it is used to read the data from the store and it will modify the react component. 
+q) The phenomenon is known as the subscribing to the store. the whole process is known as subscribing to the store. 
+q) Install - @reduxjs/toolkit and react-redux.
+q) Build our store
+q) connect our store to app
+q) slice (cartSlice)
+q) dispatch (action)
+q) code starts at 45 mins
+q) useSelector is a hook which is used to subscribe the store. useDispatch is a hook to dispatch a action.
+q) Redux uses immer library to mututate the state. 
