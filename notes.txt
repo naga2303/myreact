@@ -118,3 +118,8 @@ q) Integration testing - testing the integration of the components, ex: search +
 q) E2E testing - from user landing to user exiting.
 q) Library - react testing library - dom testing library. Built on top of dom testing library.
 q) react testing library uses jest framework. cmd - npm i -D @testing-library/react, install jest and jest with babel.
+q) install JSDOM library. we execute in jsdom which is a browser like.
+q) __ is known as dunder test.
+q) Whenever testing a component in react we have to render the component first in the JSDOM. At first the process will fail so we have to add the library babel/preset-react.
+q) This library support should be added in the babel.config.js file.
+q) Install Testing-library/jest-dom
