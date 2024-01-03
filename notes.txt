@@ -111,3 +111,10 @@ q) dispatch (action)
 q) code starts at 45 mins
 q) useSelector is a hook which is used to subscribe the store. useDispatch is a hook to dispatch a action.
 q) Redux uses immer library to mututate the state. 
+
+Chapter 13 - lets test
+q) Unit testing - testing the react component in isolation.
+q) Integration testing - testing the integration of the components, ex: search + identifying the components.
+q) E2E testing - from user landing to user exiting.
+q) Library - react testing library - dom testing library. Built on top of dom testing library.
+q) react testing library uses jest framework. cmd - npm i -D @testing-library/react

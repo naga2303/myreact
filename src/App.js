@@ -7,6 +7,13 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+import { useState, useEffect,useContext } from "react";
+import userContext from "./utils/userContext";
+
+
 
 
 /** To create food website
@@ -25,11 +32,25 @@ import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
  * 
  */
 const AppLayout = ()=>{
+    const [userName, setUserName] = useState();
+
+    //authentication
+    useEffect(() => {
+      // Make an API call and send username and password
+      const data = {
+        name: "Akshay Saini",
+      };
+      setUserName(data.name);
+    }, []);
     return (
+        <Provider store = {appStore}>
+             <userContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <div className="app">
             <Header/>
             <Outlet />
         </div>
+        </userContext.Provider>
+        </Provider>
     )
 }
 
@@ -54,6 +75,10 @@ const appRouter = createBrowserRouter([
                 path:"/restaurants/:resId",
                 element:<RestaurantMenu />,
             },
+            {
+                path: "/cart",
+                element: <Cart />,
+              },
         ],
         errorElement: <Error />   
     },
