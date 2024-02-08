@@ -35,7 +35,7 @@ const Body = ()=>{
 
     if(onlineInfo === false) return <h1>Looks like your internet is off</h1>
 
-    const { loggedInUser, setuserName } = useContext(userContext);
+    const { loggedInUser, setUserName } = useContext(userContext);
 
     return listofRestaurants.length === 0 ?
     (
@@ -46,9 +46,7 @@ const Body = ()=>{
             <div className="bg-transparent flex ">
                 <div className="search border-solid rounded-lg">
                     <input type="text" className="search-box border-solid bg-blue-50" value={searchText}
-                    onChange={(e)=>{
-                        setsearchText(e.target.value)
-                    }}
+                        onChange = {(e)=>setsearchText(e.target.value)}
                     />
                     <button className="px-2 mx-2 bg-gray-200 rounded-lg" onClick={()=>{
                         const fileteredRestaurant=listofRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -73,7 +71,7 @@ const Body = ()=>{
                     <input  
                             className="border border-black p-2 mx-2" 
                             value={loggedInUser}
-                            onChange={(e) => setuserName(e.target.value)}
+                            onChange={(e) => setUserName(e.target.value)}
                            // onChange={(e) => setUserName(e.target.value)}
                             />
                 </div>

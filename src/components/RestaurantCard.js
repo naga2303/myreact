@@ -6,7 +6,7 @@ const RestaurnantCard = (props)=>{
     //console.log(resData.info.areaName)
     const {cloudinaryImageId,name, cuisines, avgRating, sla} = resData?.info
     return (
-        <div className="res-card w-50 bg-pink-50 rounded-xl hover:bg-slate-400 justify-between">
+        <div className="res-card w-34 bg-pink-50 rounded-xl hover:bg-slate-400 justify-between">
             <img 
                 className="res-logo rounded-lg" 
                 alt="Foods"
